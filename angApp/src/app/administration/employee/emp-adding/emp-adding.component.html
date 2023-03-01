@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="emp_add" (ngSubmit)="storeEmployee(emp_add)">
+    
+    <div class="form-floating">
+      <input class="form-control" placeholder="First Name" id="floatingTextarea" formControlName="first_name"/>
+      <label for="floatingTextarea">First Name</label>
+    </div><br>
+    <div class="form-floating">
+      <input class="form-control" placeholder="Last Name" id="floatingTextarea" formControlName="last_name"/>
+      <label for="floatingTextarea">Last Name</label>
+    </div><br>
+    <div class="form-floating">
+      <input class="form-control" type='email' placeholder="Last Name" id="floatingTextarea" formControlName="last_name"/>
+      <label for="floatingTextarea">Email</label>
+    </div><br>
+
+    
+    <label for="dept">Departement:</label>
+    <select class="form-control" formControlName="department">
+      <option *ngFor="let d of depart" [value]="d.deptValue">{{d.deptName}}</option>
+    </select><br>
+    <label for="dept">Type of Employee:</label>
+    <select class="form-control" formControlName="emp_type">
+      <option *ngFor="let t of typeEmployee" [value]="t.typeValue">{{t.typeName}}</option>
+    </select>
+
+    <br />
+    
+    <button type="submit" class="btn btn-outline-primary">Add Employee</button>
+  </form>
+</div>

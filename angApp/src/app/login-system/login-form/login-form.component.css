@@ -1,0 +1,13 @@
+.mainheading{
+    text-align: center;
+}
+.inputfields{
+    width: 40%;
+    text-align: center;
+    margin: auto;
+}
+#signinbutton{
+    width: 20%;
+    /* box-sizing: border-box; */
+    text-align: center;
+}

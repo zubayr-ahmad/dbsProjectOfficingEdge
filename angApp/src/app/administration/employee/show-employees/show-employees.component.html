@@ -1,0 +1,41 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Department</th>
+        <th scope="col">Type</th>
+        <th scope="col">Delete Employee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1001</td>
+        <td>Zubair</td>
+        <td>Ahmad</td>
+        <td>bsds@pucit</td>
+        <td>IT</td>
+        <td>Intern</td>
+        <td><button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee()">Delete Employees</button></td>
+      </tr> -->
+      <tr *ngFor="let emp of allEmployees.data">
+        <th scope="row">{{emp.id}}</th>
+        <td>{{emp.first_name}}</td>
+        <td>{{emp.last_name}}</td>
+        <td>{{emp.email}}</td>
+        <td>Dummy IT</td>
+        <td>Dummy Employee</td>
+        <td><button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(emp.id)">Delete Employees</button></td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+
+  <div>
+    <ul>
+      <li *ngFor="let e of allEmployees">{{e.id}}</li>
+    </ul>
+  </div>
