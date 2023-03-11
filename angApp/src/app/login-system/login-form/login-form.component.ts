@@ -52,4 +52,8 @@ export class LoginFormComponent {
 
     return data;
   }
+
+  movetouser(){
+    this.router.navigate(['/userHome'])
+  }
 }
