@@ -10,6 +10,7 @@
     width: 100%;
     height: 100vh;
     background: #0d74f5;
+
 }
 
 nav {
@@ -35,4 +36,5 @@ li{
 a{
     color: #fff;
     text-decoration: none;
+
 }
