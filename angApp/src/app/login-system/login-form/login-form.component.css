@@ -1,23 +1,23 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 *{
     font-family: 'poppins' ,sans-serif;
 }
 body{
-    
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    
 }
+
 .box{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(234, 202, 255),rgb(135, 4, 223));
 }
 .container{
-    width: 350px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     padding: 0 15px 0 15px;
@@ -25,7 +25,7 @@ body{
 }
 span{
     color: #fff;
-    font-size: small;
+    font-size: large;
     display: flex;
     justify-content: center;
     padding: 10px 0 10px 0;
@@ -39,8 +39,8 @@ header{
 }
 
 .input-field .input{
-    height: 45px;
-    width: 87%;
+    height: 50px;
+    width: 100%;
     border: none;
     border-radius: 30px;
     color: #fff;
@@ -87,4 +87,4 @@ i{
 label a{
     text-decoration: none;
     color: #fff;
-} */
+}
