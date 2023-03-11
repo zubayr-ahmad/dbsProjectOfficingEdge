@@ -1,13 +1,15 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <div class="box">
     <div class="container">
+        <!-- This Image is Just a demo image to show you that images can be used but you have to sotre them in the assests
+        Folder in this Angular App. Bellow in the img tag, src is showing path. "../" means going one folder behind. VS Code will also give inteliscense
+        about what folders are available -->
+        <img src="../../../assets/Images/UserInterface/UserNavbar/logo-icon.png" alt=""> 
+        
         <div class="top">
 
-            <header>OFFICE EDGE</header>
-            <span>LOGIN</span>
-
             <header>OFFICING EDGE</header>
-            <span>Login</span>
+            <span>LOGIN</span>
 
         </div>
 
@@ -23,7 +25,7 @@
 
         <div class="input-field">
 
-            <button class="submit" (click)="movetouser()">Login</button>
+            <!-- <button class="submit" (click)="movetouser()">Login</button> -->
 
             <!-- <input type="submit" class="submit" value="Login" id="" (click)="movetouser()"> -->
             <button type="submit" class="submit" value="Login" id="" (click)="movetouser()">Login</button>
