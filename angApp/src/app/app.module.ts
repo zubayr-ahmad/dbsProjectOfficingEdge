@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AdministrationModule } from './administration/administration.module';
 import { LoginSystemModule } from './login-system/login-system.module';
 import { Page01Component } from './page01/page01.component';
-
+import { UserinterfaceModule } from './userinterface/userinterface.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { Page01Component } from './page01/page01.component';
     AppRoutingModule,
     AdministrationModule,
     LoginSystemModule,
+    UserinterfaceModule
 
   ],
   providers: [],

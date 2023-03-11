@@ -7,30 +7,37 @@ import { EmpAddingComponent } from './administration/employee/emp-adding/emp-add
 import { EmployeeComponent } from './administration/employee/employee.component';
 import { ShowEmployeesComponent } from './administration/employee/show-employees/show-employees.component';
 import { LoginFormComponent } from './login-system/login-form/login-form.component';
+import { UserHomeComponent } from './userinterface/user-home/user-home.component';
+import { UserNavebarComponent } from './userinterface/user-navebar/user-navebar.component';
 
 const routes: Routes = [
-  {path:'admin',component:AdminComponent},
-  
-  {path:'employee',component:EmployeeComponent,
-    children:[
-      {path:'empAddingForm',component:EmpAddingComponent},
-      {path:'empShowing',component:ShowEmployeesComponent}
-    ]
-  },
-  
-  {path:'department',component:DepartmentComponent,
-  children:[
-    {path:'deptAddingForm',component:DeptAddingComponent},
-  
-    ]
-  },
-  
-  {path:'loginForm',component:LoginFormComponent},
+  { path: '', component: LoginFormComponent },
+  { path: 'admin', component: AdminComponent },
 
+  {
+    path: 'employee',
+    component: EmployeeComponent,
+    children: [
+      { path: 'empAddingForm', component: EmpAddingComponent },
+      { path: 'empShowing', component: ShowEmployeesComponent },
+    ],
+  },
+
+  {
+    path: 'department',
+    component: DepartmentComponent,
+    children: [{ path: 'deptAddingForm', component: DeptAddingComponent }],
+  },
+
+  { path: 'loginForm', component: LoginFormComponent },
+
+  // Following are routings for user interface
+  { path: 'userHome', component: UserHomeComponent },
+  { path: 'userNavbar', component: UserNavebarComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
