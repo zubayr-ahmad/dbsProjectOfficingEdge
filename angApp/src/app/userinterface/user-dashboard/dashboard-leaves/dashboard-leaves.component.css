@@ -1,0 +1,36 @@
+.leave-summary-box {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .leave-summary-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .leave-summary-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .leave-summary-box th,
+  .leave-summary-box td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .leave-summary-box th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .leave-summary-box tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

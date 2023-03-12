@@ -7,8 +7,13 @@ import { EmpAddingComponent } from './administration/employee/emp-adding/emp-add
 import { EmployeeComponent } from './administration/employee/employee.component';
 import { ShowEmployeesComponent } from './administration/employee/show-employees/show-employees.component';
 import { LoginFormComponent } from './login-system/login-form/login-form.component';
+import { DashboardClockComponent } from './userinterface/user-dashboard/dashboard-clock/dashboard-clock.component';
+import { ApplyLeaveComponent } from './userinterface/user-dashboard/dashboard-leaves/apply-leave/apply-leave.component';
+import { DashboardLeavesComponent } from './userinterface/user-dashboard/dashboard-leaves/dashboard-leaves.component';
+import { UserDashboardComponent } from './userinterface/user-dashboard/user-dashboard.component';
 import { UserHomeComponent } from './userinterface/user-home/user-home.component';
 import { UserNavebarComponent } from './userinterface/user-navebar/user-navebar.component';
+import { UserProfileComponent } from './userinterface/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent },
@@ -32,8 +37,15 @@ const routes: Routes = [
   { path: 'loginForm', component: LoginFormComponent },
 
   // Following are routings for user interface
-  { path: 'userHome', component: UserHomeComponent },
-  { path: 'userNavbar', component: UserNavebarComponent },
+  { path: 'userHome', component: UserHomeComponent, 
+    children:[
+    { path: '', pathMatch: 'full', redirectTo: 'userDashboard' }, // redirect to dashboard
+    { path: 'userNavbar', component: UserNavebarComponent },
+    { path: 'userDashboard', component: UserDashboardComponent },
+    { path: 'userProfile', component: UserProfileComponent},
+    { path: 'applyLeave', component:ApplyLeaveComponent}
+  ]},
+  
 ];
 
 @NgModule({

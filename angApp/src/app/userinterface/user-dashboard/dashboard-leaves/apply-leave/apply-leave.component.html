@@ -1,0 +1,38 @@
+<div class="leave-application">
+    <h2>Leave Application Form</h2>
+    <form [formGroup]="leaveForm" (ngSubmit)="onSubmitLeaveForm()">
+      <div class="form-group">
+        <label for="reason">Reason for Leave:</label>
+        <input type="text" id="reason" formControlName="reason" required>
+        <div class="error-message" *ngIf="leaveForm.controls['reason'].invalid && leaveForm.controls['reason'].touched">
+          Please enter a reason for your leave.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" formControlName="startDate" required>
+        <div class="error-message" *ngIf="leaveForm.controls['startDate'].invalid && leaveForm.controls['startDate'].touched">
+          Please enter a valid start date.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" formControlName="endDate" required>
+        <div class="error-message" *ngIf="leaveForm.controls['endDate'].invalid && leaveForm.controls['endDate'].touched">
+          Please enter a valid end date.
+        </div>
+      </div>
+      <button type="submit" >Submit</button>
+    </form>
+  </div>
+  
+
+
+
+<!-- <h2>Apply Leave</h2>
+<input type="" name="" id="">
+<label for="startingDate">Start:</label>
+<input type="date" id="startingDate" name="startingDate">
+<label for="endingDate">End:</label>
+<input type="date" id="endingDate" name="endingDate"> -->
+

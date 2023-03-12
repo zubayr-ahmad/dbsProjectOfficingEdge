@@ -1,0 +1,18 @@
+<!-- Following is the blog link for clock styling:
+https://dev.to/code_mystery/simple-analog-clock-using-html-css-javascript-2c6a -->
+<div class="clock">
+    <div class="outer-clock-face">
+        <div class="marking marking-one"></div>
+        <div class="marking marking-two"></div>
+        <div class="marking marking-three"></div>
+        <div class="marking marking-four"></div>
+    </div>
+    <div class="inner-clock-face">
+        <div class="hand hour-hand" [style.transform]="hourHandTransform"></div>
+        <div class="hand min-hand" [style.transform]="minHandTransform"></div>
+        <div class="hand second-hand" [style.transform]="secondHandTransform"></div>
+    </div>
+</div>
+<h3>{{todayTime | date:'h:mm a'}}</h3>
+
+
