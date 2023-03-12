@@ -1,0 +1,32 @@
+<div class="leave-summary-box">
+  <h2>Leave Summary</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Leave Type</th>
+        <th>Balance</th>
+        <th>Availed</th>
+        <th>Available</th>
+        <th>Pending</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sick Leaves</td>
+        <td>{{ sickLeaves.balance }}</td>
+        <td>{{ sickLeaves.availed }}</td>
+        <td>{{ sickLeaves.available }}</td>
+        <td>{{ sickLeaves.pending }}</td>
+      </tr>
+      <tr>
+        <td>Paid Leaves</td>
+        <td>{{ paidLeaves.balance }}</td>
+        <td>{{ paidLeaves.availed }}</td>
+        <td>{{ paidLeaves.available }}</td>
+        <td>{{ paidLeaves.pending }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="applyLeave()">Apply Leave</button>
+</div>

@@ -1,0 +1,26 @@
+.check-in-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.check-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #30c935;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.check-btn:hover {
+  background-color: #3e8e41;
+  cursor: pointer;
+}
+
+.check-time {
+  font-size: 20px;
+  font-weight: bold;
+}

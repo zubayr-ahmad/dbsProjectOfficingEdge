@@ -1,0 +1,19 @@
+*{
+    margin-left: 35px; /* Component was appearing behind navbar. You can adjust yourself*/
+}
+
+.attendenceSummary{
+  border: 2px solid rgb(156, 12, 156);
+}
+
+.dashboardClock{
+  border: 2px solid rgb(156, 12, 156);
+}
+
+.checkINandOut{
+  border: 2px solid rgb(156, 12, 156);
+}
+
+.leaves{
+  border: 2px solid rgb(156, 12, 156);
+}

@@ -1,12 +1,14 @@
 
 <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">Settings</a></li>
+      <!-- Actually routerLinkActive is not showing dashboard as defualt, this logic is done in routing module -->
+      <li><a routerLink="/userHome/userDashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Dashboard</a></li>
+      <li><a routerLink="/userHome/userProfile">Profile</a></li>
+      <li><a href="#">Attendence Requests</a></li>
       <li><a href="#">Logout</a></li>
     </ul>
-  </nav>
+</nav>
 
-<p>user-navebar works!</p>
+
+
 

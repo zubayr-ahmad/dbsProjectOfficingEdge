@@ -7,6 +7,7 @@ import { AdministrationModule } from './administration/administration.module';
 import { LoginSystemModule } from './login-system/login-system.module';
 import { Page01Component } from './page01/page01.component';
 import { UserinterfaceModule } from './userinterface/userinterface.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { UserinterfaceModule } from './userinterface/userinterface.module';
     AppRoutingModule,
     AdministrationModule,
     LoginSystemModule,
-    UserinterfaceModule
+    UserinterfaceModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
