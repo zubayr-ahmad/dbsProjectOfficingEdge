@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardQuoteComponent } from './user-dashboard/dashboard-quote/dashboard-quote.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardAttendenceSummaryComponent,
     DashboardLeavesComponent,
     DashboardCheckinComponent,
-    ApplyLeaveComponent
+    ApplyLeaveComponent,
+    DashboardQuoteComponent
   ],
   imports: [
     CommonModule,
