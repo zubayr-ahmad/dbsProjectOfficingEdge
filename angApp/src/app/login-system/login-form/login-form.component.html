@@ -5,6 +5,7 @@
         Folder in this Angular App. Bellow in the img tag, src is showing path. "../" means going one folder behind. VS Code will also give inteliscense
         about what folders are available -->
         <img src="../../../assets/Images/UserInterface/UserNavbar/logo-icon.png" alt=""> 
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
         <div class="top">
 
@@ -20,12 +21,11 @@
 
         <div class="input-field">
             <input type="Password" class="input" placeholder="Password" id="">
+                <i class="fa fa-eye" aria-hidden="true"></i>
             <i class='bx bx-lock-alt'></i>
         </div>
 
         <div class="input-field">
-
-            <!-- <input type="submit" class="submit" value="Login" id="" (click)="movetouser()"> -->
             <button type="submit" class="submit" value="Login" id="" (click)="movetouser()">Login</button>
 
         </div>
