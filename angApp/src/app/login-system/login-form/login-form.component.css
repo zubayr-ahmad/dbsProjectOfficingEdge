@@ -37,7 +37,18 @@ header{
     justify-content: center;
     padding: 10px 0 10px 0;
 }
-
+/* .special{
+    background: rgba(255,255,255,0.1);
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    padding: 0 0 0 45px;
+    background: rgba(255,255,255,0.1);
+    outline: none;
+} */
 .input-field .input{
     height: 50px;
     width: 100%;
@@ -91,4 +102,14 @@ label a{
 .fa-eye {
 	color: #ffffff;
     left : 90%;
+}
+
+#eyeIcon{
+    position: relative;
+    padding-right: 10px;
+}
+
+#log{
+    
+    
 }

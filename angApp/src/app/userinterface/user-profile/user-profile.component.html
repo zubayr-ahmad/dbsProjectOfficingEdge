@@ -1,1 +1,119 @@
-<p>user-profile works!</p>
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <h2>Personal Information</h2>
+    <div>
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    <div>
+      <label for="middleName">Middle Name</label>
+      <input type="text" id="middleName" formControlName="middleName">
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div>
+      <label for="fathersOrHusbandName">Father's/Husband's Name</label>
+      <input type="text" id="fathersOrHusbandName" formControlName="fathersOrHusbandName">
+    </div>
+    <div>
+      <label for="gender">Gender</label>
+      <select id="gender" formControlName="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="dateOfBirth">D.O.B</label>
+      <input type="date" id="dateOfBirth " formControlName="dateOfBirth">
+
+    </div>
+    <div>
+      <label for="maritalStatus">Marital Status</label>
+      <select id="maritalStatus" formControlName="maritalStatus">
+        <option value="">Select Marital Status</option>
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="divorced">Divorced</option>
+        <option value="widowed">Widowed</option>
+      </select>
+    </div>
+    <div>
+      <label for="religion">Religion</label>
+      <input type="text" id="religion" formControlName="religion">
+    </div>
+    <div>
+      <label for="nationality">Nationality</label>
+      <input type="text" id="nationality" formControlName="nationality">
+    </div>
+    <div>
+      <label for="bloodGroup">Blood Group</label>
+      <input type="text" id="bloodGroup" formControlName="bloodGroup">
+    </div>
+    <h2>Contacts</h2>
+    <div>
+      <label for="mobileNo">Mobile No.</label>
+      <input type="text" id="mobileNo" formControlName="contacts.mobileNo">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="contacts.email">
+    </div>
+    <div>
+      <label for="address">Address</label>
+      <textarea id="address" formControlName="contacts.address"></textarea>
+    </div>
+    <div>
+      <label for="officialEmail">Official Email</label>
+      <input type="email" id="officialEmail" formControlName="contacts.officialEmail">
+    </div>
+    <h2>Identity Card</h2>
+    <div>
+      <label for="cnicNumber">CNIC Number</label>
+      <input type="text" id="cnicNumber" formControlName="identityCard.cnicNumber">
+    </div>
+    <div>
+      <label for="cnicAttachment">CNIC Attachment</label>
+      <input type="file" id="cnicAttachment" formControlName="identityCard.cnicAttachment">
+    </div>
+    <div>
+      <label for="cnicExpiryDate">CNIC Expiry Date</label>
+      <input type="date" id="cnicExpiryDate" formControlName="identityCard.cnicExpiryDate">
+    </div>
+    <h2>Role</h2>
+    <div>
+      <label for="userDefinedCode">User Defined Code</label>
+      <input type="text" id="userDefinedCode" formControlName="role.userDefinedCode">
+    </div>
+    <div>
+      <label for="joiningDate">Joining Date</label>
+      <input type="date" id="joiningDate" formControlName="role.joiningDate">
+    </div>
+    <div>
+      <label for="employmentType">Intern / Part Time / Full Time</label>
+      <select id="employmentType" formControlName="role.employmentType">
+        <option value="">Select Employment Type</option>
+        <option value="intern">Intern</option>
+        <option value="partTime">Part Time</option>
+        <option value="fullTime">Full Time</option>
+      </select>
+    </div>
+    <div>
+      <label for="location">Location</label>
+      <input type="text" id="location" formControlName="role.location">
+      
+        </div>
+        <div>
+          <label for="department">Department</label>
+          <input type="text" id="department" formControlName="role.department">
+        </div>
+        <div>
+          <label for="jobTitle">Job Title</label>
+          <input type="text" id="jobTitle" formControlName="role.jobTitle">
+        </div>
+        <div>
+            <button class="btn btn-primary">Submit</button>
+        </div>
+      </form> 

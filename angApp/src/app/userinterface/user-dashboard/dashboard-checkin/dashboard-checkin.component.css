@@ -1,9 +1,13 @@
 .check-in-out {
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-right: 3.1%;
+  border: 2px solid #9c13f7;
+  padding: 28px;
+  
 }
 
 .check-btn {

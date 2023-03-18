@@ -13,6 +13,7 @@ export class DashboardClockComponent {
   secondHandTransform: string | undefined;
 
   constructor() {
+
     setInterval(() => {
       const now = new Date();
 

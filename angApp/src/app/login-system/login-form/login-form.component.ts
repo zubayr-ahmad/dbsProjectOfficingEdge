@@ -56,4 +56,11 @@ export class LoginFormComponent {
   movetouser(){
     this.router.navigate(['/userHome'])
   }
+
+    // Show password feature
+    passwordFieldType: string = 'password';
+    togglePasswordVisibility() {
+      this.passwordFieldType =
+        this.passwordFieldType === 'password' ? 'text' : 'password'; // Toggle password and text type
+    }
 }
