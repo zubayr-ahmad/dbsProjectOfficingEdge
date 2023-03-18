@@ -1,8 +1,13 @@
 .mainQuote{
     margin-top: 40px;
-    border: 2px solid #9c13f7;
+    
     padding: 28px;
-    height: 151px;
+    height: 159px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 95%;
+  margin-right: 13px;
     
 }
 
@@ -12,8 +17,9 @@ h2{
     align-content: center;
     size: 20px;
     margin: auto;
-    color:rgb(174, 0, 255);
     justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 p{

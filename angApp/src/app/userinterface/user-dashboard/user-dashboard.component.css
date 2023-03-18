@@ -34,6 +34,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  
 }
 
 .attendenceSummary {
@@ -51,7 +52,7 @@
 .leaves {
   grid-column: 1 / span 2;
 }
-
+/* 
 .dashboardClock {
   grid-column: 2 / -1;
-}
+} */

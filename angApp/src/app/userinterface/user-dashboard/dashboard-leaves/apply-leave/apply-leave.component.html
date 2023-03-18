@@ -3,7 +3,7 @@
     <form [formGroup]="leaveForm" (ngSubmit)="onSubmitLeaveForm()">
       <div class="form-group">
         <label for="reason">Reason for Leave:</label>
-        <input type="text" id="reason" formControlName="reason" required>
+        <textarea type="text" id="reason" formControlName="reason" required></textarea>
         <div class="error-message" *ngIf="leaveForm.controls['reason'].invalid && leaveForm.controls['reason'].touched">
           Please enter a reason for your leave.
         </div>

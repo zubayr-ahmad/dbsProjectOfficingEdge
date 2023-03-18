@@ -1,6 +1,6 @@
 
 <div class="check-in-out">
-    <p *ngIf="showthepara">Punch in to start the shift</p>
+    <p *ngIf="showthepara" class="boldPara">Punch in to start the shift</p>
     <button class="check-btn" (click)="shiftStart()">Check-in</button>
     <p *ngIf="!showthepara">Checked in at: {{timeStart | date:'h:mm a'}}</p>
 </div>
