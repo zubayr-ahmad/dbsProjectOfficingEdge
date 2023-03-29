@@ -1,0 +1,20 @@
+:root{
+    /* Colors */
+    --primaryColor:rgb(0, 255, 140);
+    --secondaryColor:blue;
+    --tertiaryColor:yellow;
+    --bgPrimaryColor:rgb(7, 10, 10);
+    --bgSecondaryColor:rgb(64, 66, 65);
+    --bgTertiaryColor:rgb(9, 73, 72);
+    
+    
+    /* Input */
+    --inputWidth:200px;
+
+    /* Fonts */
+    --primaryFontSize:17px;
+
+    /* Form */
+    --formHeight:500px;
+    --formWidth:300px;
+}

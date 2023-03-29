@@ -8,6 +8,6 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 @NgModule({
   declarations: [LoginFormComponent, ForgetPasswordComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
-  exports: [LoginFormComponent],
+  exports: [LoginFormComponent, ForgetPasswordComponent],
 })
 export class LoginSystemModule { }
