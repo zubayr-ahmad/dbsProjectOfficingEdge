@@ -6,6 +6,7 @@ import { DeptAddingComponent } from './administration/department/dept-adding/dep
 import { EmpAddingComponent } from './administration/employee/emp-adding/emp-adding.component';
 import { EmployeeComponent } from './administration/employee/employee.component';
 import { ShowEmployeesComponent } from './administration/employee/show-employees/show-employees.component';
+import { ForgetPasswordComponent } from './login-system/forget-password/forget-password.component';
 import { LoginFormComponent } from './login-system/login-form/login-form.component';
 import { DashboardClockComponent } from './userinterface/user-dashboard/dashboard-clock/dashboard-clock.component';
 import { ApplyLeaveComponent } from './userinterface/user-dashboard/dashboard-leaves/apply-leave/apply-leave.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   },
 
   { path: 'loginForm', component: LoginFormComponent },
+  {path:'forgetPassword',component:ForgetPasswordComponent},
 
   // Following are routings for user interface
   { path: 'userHome', component: UserHomeComponent, 

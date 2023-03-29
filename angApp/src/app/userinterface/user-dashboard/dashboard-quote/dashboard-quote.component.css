@@ -1,14 +1,32 @@
+.mainQuote{
+    margin-top: 40px;
+    
+    padding: 28px;
+    height: 159px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 95%;
+  margin-right: 13px;
+    
+}
+
+
 h2{
     display: flex;
     align-content: center;
     size: 20px;
-    margin-left: 40.2%;
-    color:rgb(174, 0, 255);
+    margin: auto;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 p{
+    margin-top: 10px;
     display: flex;
     align-content: center;
     size: 7rem;
     text-align: center;
+    justify-content: center;
 }  

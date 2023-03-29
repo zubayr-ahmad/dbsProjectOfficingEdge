@@ -75,8 +75,15 @@
   .form-group input {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
     font-size: 16px;
+    outline: none;
+    border: 2px solid #99959f;
+    border-radius: 5px;
+
+  }
+  .form-group input:focus{
+    border-color: #6f42c1;
+    box-shadow: 0 0 5px #6f42c1;
     outline: none;
   }
   
@@ -88,10 +95,30 @@
   
   button[type="submit"] {
     display: flex;
+    text-align: center;
+    background-color: #9f1ff5;
+    justify-content: center;
     width: 100%;
-    padding: 10px;
-    color: rgb(177, 10, 243);
+    padding: 7px;
+    /* color: rgb(177, 10, 243); */
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    border-color: #9f1ff5;
+  }
+  button:hover{
+    background-color: #790bac;
+  }
+
+  textarea{
+    width: 100%;
+    border: 2px solid #99959f;
+    border-radius: 5px;
+  }
+  textarea:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 5px #6f42c1;
+    outline: none;
+
+    
   }

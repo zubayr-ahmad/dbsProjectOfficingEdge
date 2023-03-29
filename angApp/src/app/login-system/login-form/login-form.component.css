@@ -1,94 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
-*{
-    font-family: 'poppins' ,sans-serif;
-}
-body{
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-
-.box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: linear-gradient(rgb(234, 202, 255),rgb(135, 4, 223));
-}
-.container{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px 0 15px;
+.loginform{
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    background-image: url('../../../assets/Images/Login/image02.jpg');
+    background-repeat:no-repeat;
+    background-size:cover ;
+    
+    background-color: var(--bgPrimaryColor) ;
+    color: var(--primaryColor);
+    border: 2px solid var(--bgPrimaryColor);
+    height: var(--formHeight);
+    width: var(--formWidth);
     
 }
-span{
-    color: #fff;
-    font-size: large;
+
+
+.emailBox,.passwordBox{
+    margin-top: 20px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    padding: 10px 0 10px 0;
-}
-header{
-    color: #fff;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0 10px 0;
+    align-items: center;
+    margin-right: 10px;
+    
 }
 
-.input-field .input{
-    height: 50px;
-    width: 100%;
+.loginform i{  
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+.loginform input{
+    padding: 5px;
+    background-color: var(--bgTertiaryColor);
     border: none;
-    border-radius: 30px;
-    color: #fff;
-    font-size: 15px;
-    padding: 0 0 0 45px;
-    background: rgba(255,255,255,0.1);
-    outline: none;
+    border-radius: 5px;
+    width: var(--inputWidth);    
 }
-i{
-    position: relative;
-    top: -33px;
-    left: 17px;
-    color: #fff;
+
+.emailBox input{
+    margin-left: 33px;
 }
-::-webkit-input-placeholder{
-    color: #fff;
+
+.loginform label{
+    margin-right: 10px;
+    margin-left: 5px;
+    font-size: var(--primaryFontSize);
 }
-.submit{
-    border: none;
-    border-radius: 30px;
-    font-size: 15px;
-    height: 45px;
-    outline: none;
-    width: 100%;
-    color: black;
-    background: rgba(255,255,255,0.7);
-    cursor: pointer;
-    transition: .3s ;
+
+.invalid{
+    margin-left: 167px;
 }
-.submit:hover{
-    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
-}
-.two-col{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: #fff;
-    font-size: small;
-    margin-top: 10px;
-}
-.one{
-    display: flex;
-}
-label a{
+
+.forgetPassword a{
     text-decoration: none;
-    color: #fff;
+    color: var(--primaryColor);
 }
-.fa-eye {
-	color: #ffffff;
-    left : 90%;
+.loginButton{
+    background-color: var(--primaryColor);
+    color: rgb(0, 0, 0);
 }

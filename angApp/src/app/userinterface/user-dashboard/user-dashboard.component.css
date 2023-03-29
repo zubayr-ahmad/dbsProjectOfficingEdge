@@ -1,4 +1,58 @@
-*{
+/* div{
   position: static 150px;
-  margin-left: 150px; /* Component was appearing behind navbar. You can adjust yourself*/
+  margin-left: 150px; 
+} */
+.mainBox {
+  display: grid;
+  grid-template-rows: auto auto; /* Two rows of auto height */
+  grid-template-columns: 30% auto; /* First column takes 25% width, second column takes remaining */
+  grid-gap: 20px; /* Gap between grid items */
+  position: static 150px;
+  margin-left: 150px;
+  
 }
+
+.attendenceSummary {
+  grid-row: 1 / 2; /* Attendence summary occupies the first row */
+  grid-column: 1 / -1; /* Attendence summary spans across all columns */
+}
+
+.checkINandOut {
+  grid-row: 2 / 3; /* Check-in and quote boxes occupy the second row */
+  grid-column: 1 / 2; /* Check-in box takes the first column */
+}
+
+.quote {
+  grid-row: 2 / 3; /* Quote box also occupies the second row */
+  grid-column: 2 / -1; /* Quote box takes the remaining columns */
+}
+
+
+
+
+.mainBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  
+}
+
+.attendenceSummary {
+  grid-column: 1 / -1;
+}
+
+.checkINandOut {
+  grid-column: 1 / span 1;
+}
+
+.quote {
+  grid-column: 2 / -1;
+}
+
+.leaves {
+  grid-column: 1 / span 2;
+}
+/* 
+.dashboardClock {
+  grid-column: 2 / -1;
+} */

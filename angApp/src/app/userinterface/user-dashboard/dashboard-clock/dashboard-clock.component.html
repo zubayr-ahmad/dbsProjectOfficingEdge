@@ -1,5 +1,6 @@
 <!-- Following is the blog link for clock styling:
 https://dev.to/code_mystery/simple-analog-clock-using-html-css-javascript-2c6a -->
+
 <div class="clock">
     <div class="outer-clock-face">
         <div class="marking marking-one"></div>
@@ -13,6 +14,10 @@ https://dev.to/code_mystery/simple-analog-clock-using-html-css-javascript-2c6a -
         <div class="hand second-hand" [style.transform]="secondHandTransform"></div>
     </div>
 </div>
-<h3>{{todayTime | date:'h:mm a'}}</h3>
+<h3>{{time | date:'h:mm a'}}</h3>
+
+
+
+
 
 
