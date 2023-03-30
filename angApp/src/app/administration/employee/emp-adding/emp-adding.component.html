@@ -1,31 +1,71 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
 <div>
-  <form [formGroup]="emp_add" (ngSubmit)="storeEmployee(emp_add)">
-    
-    <div class="form-floating">
-      <input class="form-control" placeholder="First Name" id="floatingTextarea" formControlName="first_name"/>
-      <label for="floatingTextarea">First Name</label>
-    </div><br>
-    <div class="form-floating">
-      <input class="form-control" placeholder="Last Name" id="floatingTextarea" formControlName="last_name"/>
-      <label for="floatingTextarea">Last Name</label>
-    </div><br>
-    <div class="form-floating">
-      <input class="form-control" type='email' placeholder="Last Name" id="floatingTextarea" formControlName="last_name"/>
-      <label for="floatingTextarea">Email</label>
-    </div><br>
+  <form [formGroup]="empAdd" (ngSubmit)="storeEmployee(empAdd)">
 
-    
-    <label for="dept">Departement:</label>
-    <select class="form-control" formControlName="department">
-      <option *ngFor="let d of depart" [value]="d.deptValue">{{d.deptName}}</option>
-    </select><br>
-    <label for="dept">Type of Employee:</label>
-    <select class="form-control" formControlName="emp_type">
-      <option *ngFor="let t of typeEmployee" [value]="t.typeValue">{{t.typeName}}</option>
-    </select>
+    <div>
+      <label>First Name</label>
+      <input placeholder="First Name" formControlName="firstName" />
+    </div>
+    <label>Last Name</label>
+    <input placeholder="Last Name" formControlName="lastName" />
+    <div>
+      <label>Email</label>
+      <input placeholder="Email" formControlName="email" />
+    </div>
 
-    <br />
-    
-    <button type="submit" class="btn btn-outline-primary">Add Employee</button>
+    <div>
+      <label for="department">Department</label>
+      <select id="department" name="department" formControlName="department">
+        <option value="null" selected disabled>Select Department</option>
+        <option *ngFor="let department of depart" [value]="department.deptValue">{{ department.deptName }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="empType">Employee Type</label>
+      <select id="empType" name="empType" formControlName="empType">
+        <option value="null" selected disabled>Select Employee Type</option>
+        <option *ngFor="let t of typeEmployee" [value]="t.typeValue">{{t.typeName}}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="role">Role</label>
+      <select id="role" name="role" formControlName="empRole">
+        <option value="null" selected disabled>Select Role</option>
+        <option *ngFor="let role of empRole" [value]="role.typeValue">{{ role.typeName }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="">Startign Time</label>
+      <input type="time" formControlName="shiftStartTime">
+    </div>
+
+    <div>
+      <label for="">Ending Time</label>
+      <input type="time" formControlName="shiftEndTime">
+    </div>
+
+    <div>
+      <ngx-intl-tel-input formControlName="phoneNo" 
+        [cssClass]="'custom'"
+        [preferredCountries]="[CountryISO.Pakistan, CountryISO.UnitedKingdom]" 
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true" 
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
+        [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.Pakistan" 
+        [maxLength]="15" 
+        [phoneValidation]="true"
+        [separateDialCode]="true">
+      </ngx-intl-tel-input>
+
+    </div>
+
+
+    <button type="submit" >Add Employee</button>
   </form>
 </div>

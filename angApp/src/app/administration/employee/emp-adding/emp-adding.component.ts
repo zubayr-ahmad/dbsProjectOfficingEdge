@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { CountryISO,SearchCountryField  } from 'ngx-intl-tel-input';
+
+
 import {
   FormGroup,
   FormControl,
   Validators,
   FormBuilder,
-  NgForm,
+  Form,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
@@ -14,37 +17,56 @@ import { EmployeesDataService } from 'src/app/services/employees-data.service';
   styleUrls: ['./emp-adding.component.css'],
 })
 export class EmpAddingComponent {
-  emp_add: FormGroup;
+  empAdd: FormGroup;
+
+  CountryISO = CountryISO;
+  SearchCountryField= SearchCountryField;
 
   // fisrtName: string = '';
   // lastName: string = '';
-  // empEmail:string = '';
+  // email:string = '';
   // department_type: string = '';
   // empType: number = 1;
+  // empRole: number = 1;
 
-  constructor(private formbiulder: FormBuilder, private emp: EmployeesDataService) {
-    this.emp_add = formbiulder.group({
-      first_name: new FormControl(),
-      last_name: new FormControl(),
-      emp_email: new FormControl(),
-      department: new FormControl(),
-      emp_type: new FormControl(),
+  constructor(
+    private formbiulder: FormBuilder,
+    private emp: EmployeesDataService
+  ) {
+    this.empAdd = formbiulder.group({
+      firstName: new FormControl(null,Validators.required),
+      lastName: new FormControl("",Validators.required),
+      email: new FormControl("",Validators.required),
+      department: new FormControl("",Validators.required),
+      empType: new FormControl("",Validators.required),
+      empRole: new FormControl("",Validators.required),
+      shiftStartTime: new FormControl("",Validators.required),
+      shiftEndTime: new FormControl("",Validators.required),
+      phoneNo: new FormControl('', [Validators.required, Validators.minLength(10)]),
     });
+
   }
 
-  storeEmployee(emp_add: any): any {
+  
+
+
+
+  storeEmployee(formData: any): any {
     let data = {
-      fname: this.emp_add.get('first_name')?.value,
-      lname: this.emp_add.get('last_name')?.value,
-      empEmail: this.emp_add.get('last_name')?.value,
-      dept: this.emp_add.get('department')?.value,
-      empType: this.emp_add.get('emp_type')?.value,
+      fname: formData.get('firstName')?.value,
+      lname: formData.get('lastName')?.value,
+      email: formData.get('email')?.value,
+      dept: formData.get('department')?.value,
+      empType: formData.get('empType')?.value,
+      empRole: formData.get('empRole')?.value,
+      shiftStartTime: formData.get('shiftStartTime')?.value,
+      shiftEndTime: formData.get('shiftEndTime')?.value,
+      phoneNo: formData.get('phoneNo')?.value,
     };
 
-
-    this.emp.postEmployee(data).subscribe((result)=>{
-      console.log(result)
-    })
+    this.emp.postEmployee(data).subscribe((result) => {
+      console.log(result);
+    });
   }
 
   depart: any[] = [
@@ -54,12 +76,15 @@ export class EmpAddingComponent {
     { deptName: 'Quality Assurance', deptValue: 4 },
   ];
 
-  opt_departement: string[] = ['IT', 'Testing', 'Administration'];
-
   typeEmployee: any[] = [
     { typeName: 'part-time', typeValue: 1 },
     { typeName: 'full-time', typeValue: 2 },
     { typeName: 'seasonal', typeValue: 3 },
     { typeName: 'temporay', typeValue: 4 },
+  ];
+
+  empRole: any[] = [
+    { typeName: 'Admin', typeValue: 1 },
+    { typeName: 'User', typeValue: 2 },
   ];
 }
