@@ -1,38 +1,41 @@
 <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
-
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
-<div class="loginform">
-    <form [formGroup]="loginForm" (ngSubmit)="checkUserVerification(loginForm)">
+<div id="completeScreen">
+    
+    <div class="loginform">
+        <form [formGroup]="loginForm" (ngSubmit)="checkUserVerification(loginForm)">
 
-        <div class="emailBox">
-            <i class='bx bx-user'></i>
-            <label for="email">Email</label>
-            <input type="email" name="email" formControlName="email"><br>
+            <div class="emailBox">
+                <i class='bx bx-user'></i>
+                <label for="email">Email</label>
+                <input type="email" name="email" formControlName="email"><br>
 
-        </div>
-        <div class="invalid" *ngIf="
+            </div>
+            <div class="invalid" *ngIf="
     loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-            <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
-            <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</small>
-        </div>
+                <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
+                <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</small>
+            </div>
 
-        <div class="passwordBox">
-            <i class='bx bx-lock-alt'></i>
-            <label for="password">Password</label>
-            <input type="{{ passwordFieldType}}" name="password" formControlName="password">
-            <i class="fa eyeIcon" [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'" id="togglePassword"
-                style="margin-left: -30px; cursor: pointer;" (click)="togglePasswordVisibility()"></i><br>
+            <div class="passwordBox">
+                <i class='bx bx-lock-alt'></i>
+                <label for="password">Password</label>
+                <input type="{{ passwordFieldType}}" name="password" formControlName="password">
+                <i class="fa eyeIcon" [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'"
+                    id="togglePassword" style="margin-left: -30px; cursor: pointer;"
+                    (click)="togglePasswordVisibility()"></i><br>
 
-        </div>
-        <div class="invalid" *ngIf="
+            </div>
+            <div class="invalid" *ngIf="
     loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
     ">
-            <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
-        </div>
-        <div class="forgetPassword">
-            <a [routerLink]="'/forgetPassword'">Forgot your password?</a>
-        </div>
-        <button type="submit" class="loginButton">Login</button>
-    </form>
+                <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
+            </div>
+            <div class="forgetPassword">
+                <a [routerLink]="'/forgetPassword'">Forgot your password?</a>
+            </div>
+            <button type="submit" class="loginButton">Login</button>
+        </form>
+    </div>
 </div>
