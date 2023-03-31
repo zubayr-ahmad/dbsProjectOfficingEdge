@@ -1,6 +1,105 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
 
-<div>
+
+<div class="formBox">
+  <form [formGroup]="empAdd" (ngSubmit)="storeEmployee(empAdd)">
+    <div class="name">
+      <label>First Name</label>
+      <input placeholder="First Name" formControlName="firstName" />
+      <div
+        *ngIf="empAdd.get('firstName')?.invalid && (empAdd.get('firstName')?.dirty || empAdd.get('firstName')?.touched)">
+        <small *ngIf="empAdd.get('firstName')?.hasError('required')">First name is required</small>
+      </div>
+    </div>
+
+    <div class="name">
+      <label>Last Name</label>
+      <input placeholder="Last Name" formControlName="lastName" />
+      <div
+        *ngIf="empAdd.get('lastName')?.invalid && (empAdd.get('lastName')?.dirty || empAdd.get('lastName')?.touched)">
+        <small *ngIf="empAdd.get('lastName')?.hasError('required')">Last name is required</small>
+      </div>
+    </div>
+
+    <div class="email">
+      <label>Email</label>
+      <input placeholder="Email" formControlName="email" />
+      <div *ngIf="empAdd.get('email')?.invalid && (empAdd.get('email')?.dirty || empAdd.get('email')?.touched)">
+        <small *ngIf="empAdd.get('email')?.hasError('required')">Email is required</small>
+        <small *ngIf="empAdd.get('email')?.hasError('email')">Please enter a valid email</small>
+      </div>
+    </div>
+
+    <div class="department">
+      <label for="department">Department</label>
+      <select id="department" name="department" formControlName="department">
+        <option value="null" selected disabled>Select Department</option>
+        <option *ngFor="let department of depart" [value]="department.deptValue">{{ department.deptName }}</option>
+      </select>
+      <div
+        *ngIf="empAdd.get('department')?.invalid && (empAdd.get('department')?.dirty || empAdd.get('department')?.touched)">
+        <small *ngIf="empAdd.get('department')?.hasError('required')">Department is required</small>
+      </div>
+    </div>
+
+    <div class="empType">
+      <label for="empType">Employee Type</label>
+      <select id="empType" name="empType" formControlName="empType">
+        <option value="null" selected disabled>Select Employee Type</option>
+        <option *ngFor="let t of typeEmployee" [value]="t.typeValue">{{t.typeName}}</option>
+      </select>
+      <div *ngIf="empAdd.get('empType')?.invalid && (empAdd.get('empType')?.dirty || empAdd.get('empType')?.touched)">
+        <small *ngIf="empAdd.get('empType')?.hasError('required')">Employee type is required</small>
+      </div>
+    </div>
+
+    <div class="adminCheck">
+      <label for="">Click to make him/her an admin</label>
+      <input type="checkbox" formControlName="isAdmin">
+    </div>
+
+    <div class="shiftTimes">
+      <label for="">Starting Time</label>
+      <input type="time" formControlName="shiftStartTime">
+      <div
+        *ngIf="empAdd.get('shiftStartTime')?.invalid && (empAdd.get('shiftStartTime')?.dirty || empAdd.get('shiftStartTime')?.touched)">
+        <small *ngIf="empAdd.get('shiftStartTime')?.hasError('required')">Starting time is required</small>
+      </div>
+    </div>
+
+    <div class="shiftTimes">
+      <label for="">Ending Time</label>
+      <input type="time" formControlName="shiftEndTime">
+      <div
+        *ngIf="empAdd.get('shiftEndTime')?.invalid && (empAdd.get('shiftEndTime')?.dirty || empAdd.get('shiftEndTime')?.touched)">
+        <small *ngIf="empAdd.get('shiftEndTime')?.hasError('required')">Ending time is required</small>
+      </div>
+    </div>
+
+    <div class="phonNo">
+      <ngx-intl-tel-input formControlName="phoneNo" [cssClass]="'custom'"
+        [preferredCountries]="[CountryISO.Pakistan, CountryISO.UnitedKingdom]" [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true" [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+        [selectedCountryISO]="CountryISO.Pakistan" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true">
+      </ngx-intl-tel-input>
+      <div *ngIf="empAdd.get('phoneNo')?.touched">
+        <small *ngIf="empAdd.get('phoneNo')?.hasError('required') && empAdd.get('phoneNo')?.invalid">Phone number is
+          required</small>
+        <small *ngIf="empAdd.get('phoneNo')?.invalid && !(empAdd.get('phoneNo')?.hasError('required'))">Invalid phone
+          number</small>
+      </div>
+    </div>
+    <button type="submit" class="submitButton">Add Employee</button>
+  </form>
+</div>
+
+
+
+
+
+
+<!-- <div>
   <form [formGroup]="empAdd" (ngSubmit)="storeEmployee(empAdd)">
 
     <div>
@@ -68,4 +167,4 @@
 
     <button type="submit" >Add Employee</button>
   </form>
-</div>
+</div> -->
