@@ -1,16 +1,39 @@
+<div class="empData">
+  <div class="container">
+    <div class="header">
+      <div class="attendence-summary">Employees Summary</div>
+      <div class="todays-date">{{ today | date }}</div>
+    </div>
+    <div class="boxes">
+      <div class="box">
+        <div class="value">1</div>
+        <div class="text">Total</div>
+      </div>
+      <div class="box">
+        <div class="value">3</div>
+        <div class="text">Performance</div>
+      </div>
+      <div class="box">
+        <button class="value" id="addButton" (click)="addEmpForm()">+</button>
+        <div class="text">Add Employee</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tableContainer">
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Department</th>
-        <th scope="col">Type</th>
-        <th scope="col">Delete Employee</th>
-      </tr>
-    </thead>
-    <tbody>
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Details</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let emp of allEmployees; let i = index">
       <!-- <tr>
         <td>1001</td>
         <td>Zubair</td>
@@ -20,22 +43,30 @@
         <td>Intern</td>
         <td><button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee()">Delete Employees</button></td>
       </tr> -->
-      <tr *ngFor="let emp of allEmployees.data">
-        <th scope="row">{{emp.id}}</th>
-        <td>{{emp.first_name}}</td>
-        <td>{{emp.last_name}}</td>
+      <tr (click)="toggleRow(i)">
+        <td>{{emp.firstName}}</td>
+        <td>{{emp.lastName}}</td>
         <td>{{emp.email}}</td>
-        <td>Dummy IT</td>
-        <td>Dummy Employee</td>
-        <td><button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(emp.id)">Delete Employees</button></td>
+        <td><button class="btn btn-outline-primary me-2" type="button">{{ isRowExpanded(i) ? 'Hide' : 'Details'
+            }}</button></td>
+        
       </tr>
-      
-      
-    </tbody>
-  </table>
+      <tr *ngIf="isRowExpanded(i)">
+        <td  colspan="5">
+          <p><strong>ID:</strong> {{emp.id}}</p>
+          <p><strong>Contact No:</strong> {{emp.ContactNumber}}</p>
+          <p><strong>Age:</strong> {{emp.age}}</p>
+          <p><strong>Date of Birth:</strong> {{emp.dob}}</p>
+          <p><strong>Salary:</strong> {{emp.salary}}</p>
+          <p><strong>Address:</strong> {{emp.address}}</p>
+          <button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(i)">Delete Employees</button>
+        </td>
+      </tr>
 
-  <div>
-    <ul>
-      <li *ngFor="let e of allEmployees">{{e.id}}</li>
-    </ul>
-  </div>
+
+
+
+    </ng-container>
+  </tbody>
+</table>
+</div>

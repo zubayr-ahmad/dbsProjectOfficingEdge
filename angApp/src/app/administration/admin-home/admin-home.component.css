@@ -1,0 +1,32 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.admin-navbar {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.dashboard-content {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .admin-navbar {
+    flex: 0 0 16.67%;
+    max-width: 16.67%;
+  }
+  
+  .dashboard-content {
+    flex: 0 0 83.33%;
+    max-width: 83.33%;
+  }
+}

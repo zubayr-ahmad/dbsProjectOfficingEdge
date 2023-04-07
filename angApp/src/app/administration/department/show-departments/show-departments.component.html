@@ -1,0 +1,23 @@
+<div class="empData">
+    <div class="container">
+      <div class="header">
+        <div class="attendence-summary">Departments Summary</div>
+        <div class="todays-date">{{ today | date }}</div>
+      </div>
+      <div class="boxes">
+        <div class="box">
+          <div class="value">1</div>
+          <div class="text">Total</div>
+        </div>
+        <div class="box">
+          <div class="value">3</div>
+          <div class="text">Performance</div>
+        </div>
+        <div class="box">
+          <button class="value" id="addButton" (click)="addDeptForm()">+</button>
+          <div class="text">Add Department</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

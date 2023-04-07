@@ -8,24 +8,21 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 
-import { EmployeeComponent } from './employee/employee.component';
 import { EmpAddingComponent } from './employee/emp-adding/emp-adding.component';
 import { ShowEmployeesComponent } from './employee/show-employees/show-employees.component';
 
-import { DepartmentComponent } from './department/department.component';
 import { DeptAddingComponent } from './department/dept-adding/dept-adding.component';
+import { ShowDepartmentsComponent } from './department/show-departments/show-departments.component';
 
 @NgModule({
   declarations: [
     EmpAddingComponent,
     DeptAddingComponent,
 
-    DepartmentComponent,
-
-    EmployeeComponent,
     ShowEmployeesComponent,
     AdminHomeComponent,
     AdminNavbarComponent,
+    ShowDepartmentsComponent,
   ],
   imports: [
     CommonModule,
@@ -39,11 +36,11 @@ import { DeptAddingComponent } from './department/dept-adding/dept-adding.compon
     AdminHomeComponent,
     AdminNavbarComponent,
 
-    EmployeeComponent,
+
     EmpAddingComponent,
     ShowEmployeesComponent,
 
-    DepartmentComponent,
+ 
     DeptAddingComponent,
   ],
 })
