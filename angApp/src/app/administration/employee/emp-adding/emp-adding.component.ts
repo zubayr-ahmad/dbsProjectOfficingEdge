@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
+
 import {
   FormGroup,
   FormControl,
   Validators,
   FormBuilder,
-  NgForm,
+  Form,
+  AbstractControl,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
@@ -14,37 +17,92 @@ import { EmployeesDataService } from 'src/app/services/employees-data.service';
   styleUrls: ['./emp-adding.component.css'],
 })
 export class EmpAddingComponent {
-  emp_add: FormGroup;
+  empAdd: FormGroup;
+
+  CountryISO = CountryISO;
+  SearchCountryField = SearchCountryField;
 
   // fisrtName: string = '';
   // lastName: string = '';
-  // empEmail:string = '';
+  // email:string = '';
   // department_type: string = '';
   // empType: number = 1;
+  // empRole: number = 1;
 
-  constructor(private formbiulder: FormBuilder, private emp: EmployeesDataService) {
-    this.emp_add = formbiulder.group({
-      first_name: new FormControl(),
-      last_name: new FormControl(),
-      emp_email: new FormControl(),
-      department: new FormControl(),
-      emp_type: new FormControl(),
+  constructor(
+    private formbiulder: FormBuilder,
+    private emp: EmployeesDataService
+  ) {
+    this.empAdd = formbiulder.group({
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      department: new FormControl(null, Validators.required),
+      empType: new FormControl(null, Validators.required),
+      isAdmin: new FormControl(false),
+      shiftStartTime: new FormControl(null, Validators.required),
+      shiftEndTime: new FormControl(null, Validators.required),
+      phoneNo: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(15),
+      ]),
     });
   }
 
-  storeEmployee(emp_add: any): any {
-    let data = {
-      fname: this.emp_add.get('first_name')?.value,
-      lname: this.emp_add.get('last_name')?.value,
-      empEmail: this.emp_add.get('last_name')?.value,
-      dept: this.emp_add.get('department')?.value,
-      empType: this.emp_add.get('emp_type')?.value,
-    };
+  storeEmployee(formData: any): any {
+    if (formData.valid) {
+      let empRole01 = 2;
+      if (formData.get('empType')?.value == true) {
+        empRole01 = 1;
+      }
+      let st = formData.get('shiftStartTime')?.value;
+      let ed = formData.get('shiftEndTime')?.value;
+      let durationinMinutes = this.convertToMinutes(st,ed)
 
+      let data = {
+        fname: formData.get('firstName')?.value,
+        lname: formData.get('lastName')?.value,
+        email: formData.get('email')?.value,
+        dept: formData.get('department')?.value,
+        empType: formData.get('empType')?.value,
+        empRole: empRole01,
+        shiftStartTime: formData.get('shiftStartTime')?.value,
+        shiftEndTime: formData.get('shiftEndTime')?.value,
+        duration: durationinMinutes,
+        phoneNo: formData.get('phoneNo')?.value.nationalNumber,
+      };
 
-    this.emp.postEmployee(data).subscribe((result)=>{
-      console.log(result)
-    })
+      this.emp.postEmployee(data).subscribe((result) => {
+        console.log(result);
+        alert('Form submitted successfully');
+      });
+    } else {
+      // Mark all the controls as touched to show validation messages
+      this.empAdd.markAllAsTouched();
+    }
+  }
+
+  convertToMinutes(st: string, ed: string) {
+    // Convert start time and end time to Date objects
+    const startDate = new Date();
+    const [stHours, stMinutes] = st.split(':').map(Number);
+    startDate.setHours(stHours);
+    startDate.setMinutes(stMinutes);
+
+    const endDate = new Date();
+    const [edHours, edMinutes] = ed.split(':').map(Number);
+    endDate.setHours(edHours);
+    endDate.setMinutes(edMinutes);
+
+    // If end time is before start time, add a day to end time
+    if (endDate < startDate) {
+      endDate.setDate(endDate.getDate() + 1);
+    }
+
+    // Calculate working minutes by subtracting start time from end time
+    let workingMinutes = ((endDate.getTime() - startDate.getTime()) / (1000 * 60));
+    return workingMinutes
   }
 
   depart: any[] = [
@@ -54,12 +112,15 @@ export class EmpAddingComponent {
     { deptName: 'Quality Assurance', deptValue: 4 },
   ];
 
-  opt_departement: string[] = ['IT', 'Testing', 'Administration'];
-
   typeEmployee: any[] = [
     { typeName: 'part-time', typeValue: 1 },
     { typeName: 'full-time', typeValue: 2 },
     { typeName: 'seasonal', typeValue: 3 },
     { typeName: 'temporay', typeValue: 4 },
+  ];
+
+  empRole: any[] = [
+    { typeName: 'Admin', typeValue: 1 },
+    { typeName: 'User', typeValue: 2 },
   ];
 }
