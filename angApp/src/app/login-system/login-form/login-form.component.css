@@ -4,13 +4,11 @@
     top: 50%;
     transform: translate(-50%, -50%);
     
-    background-image: url('../../../assets/Images/Login/image02.jpg');
+    background-image: url('../../../assets/Images/Login/3425225.jpg');
     background-repeat:no-repeat;
     background-size:cover ;
     
-    background-color: var(--bgPrimaryColor) ;
     color: var(--primaryColor);
-    border: 2px solid var(--bgPrimaryColor);
     height: var(--formHeight);
     width: var(--formWidth);
     
@@ -23,7 +21,6 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
-    
 }
 
 .loginform i{  
@@ -34,14 +31,15 @@
 
 .loginform input{
     padding: 5px;
-    background-color: var(--bgTertiaryColor);
+    background: rgba(255,255,255,0.1);
     border: none;
-    border-radius: 5px;
-    width: var(--inputWidth);    
+    border-radius: 8px;
+    width: var(--inputWidth);
 }
 
 .emailBox input{
     margin-left: 33px;
+    background: rgba(255,255,255,0.1);
 }
 
 .loginform label{
@@ -57,8 +55,53 @@
 .forgetPassword a{
     text-decoration: none;
     color: var(--primaryColor);
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: 25px;
+    right: 5px;
+    font-size: 12px;
 }
 .loginButton{
-    background-color: var(--primaryColor);
-    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    border-radius: 12px;
+    top: 15px;
+    transition: 200ms;
+}
+
+.loginButton:hover{
+    background-color: var(--secondaryColor);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    border-radius: 12px;
+    top: 15px;
+}
+
+#bg{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.loginform .heading{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 5px;
+}
+
+.loginform .logo{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10px;
 }
