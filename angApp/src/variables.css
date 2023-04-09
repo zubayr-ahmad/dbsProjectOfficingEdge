@@ -1,9 +1,9 @@
 :root{
     /* Colors */
-    --primaryColor:rgb(0, 255, 140);
-    --secondaryColor:blue;
+    --primaryColor:rgb(232, 248, 241);
+    --secondaryColor:rgb(136, 6, 243);
     --tertiaryColor:yellow;
-    --bgPrimaryColor:rgb(7, 10, 10);
+    --bgPrimaryColor:rgb(0, 255, 13);
     --bgSecondaryColor:rgb(64, 66, 65);
     --bgTertiaryColor:rgb(9, 73, 72);
     
