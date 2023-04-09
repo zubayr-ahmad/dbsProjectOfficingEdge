@@ -1,0 +1,19 @@
+firstName
+lastName
+gender : Male=1, Female=2, Other=3
+dob --> Date
+
+phoneNo
+personalEmail
+organizationEmail
+address
+
+cnic
+userDefinedCode --> Idher hum merai khayal user ki id show ker detai hain.
+jobRole: Backend Developer=0, Frontend Developer=1, SQA Engg=2, .... --> Ya fir tou mujhai API bana dai roles ki nai tou filhal esai hi ker letai next time k liyai isai rakh letai hain
+empType: Part time=0, Full-time=1, Contract=2, Intern=3
+
+
+
+
+

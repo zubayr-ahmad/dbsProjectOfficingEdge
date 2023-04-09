@@ -2,20 +2,19 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
 <div id="completeScreen">
-    
+
     <div class="loginform">
         <form [formGroup]="loginForm" (ngSubmit)="checkUserVerification(loginForm)">
 
             <div class="emailBox">
                 <i class='bx bx-user'></i>
-                <label for="email">Email</label>
-                <input type="email" name="email" formControlName="email"><br>
+                <label for="username">Username</label>
+                <input type="text" name="username" formControlName="username"><br>
 
             </div>
             <div class="invalid" *ngIf="
-    loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-                <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
-                <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</small>
+    loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">
+                <small *ngIf="loginForm.get('username')?.hasError('required')">Username is required</small>
             </div>
 
             <div class="passwordBox">
@@ -32,10 +31,14 @@
     ">
                 <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
             </div>
+
+            <div class="invalid-text">
+                <p>Invalid username or password</p>
+            </div>
+            <button type="submit" class="loginButton">Login</button>
             <div class="forgetPassword">
                 <a [routerLink]="'/forgetPassword'">Forgot your password?</a>
             </div>
-            <button type="submit" class="loginButton">Login</button>
         </form>
     </div>
 </div>

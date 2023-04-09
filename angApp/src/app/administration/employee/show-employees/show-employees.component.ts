@@ -10,7 +10,7 @@ export class ShowEmployeesComponent implements OnInit{
   allEmployees:any;
   today = new Date();
   constructor(private empsData:EmployeesDataService, private router:Router){
-    empsData.employeesGet().subscribe((data)=>{
+    empsData.getEmployeesList().subscribe((data)=>{
       this.allEmployees= data;
       console.log(data)
     })

@@ -34,6 +34,7 @@
 
 .loginform input{
     padding: 5px;
+    color: white;
     background-color: var(--bgTertiaryColor);
     border: none;
     border-radius: 5px;

@@ -83,7 +83,7 @@ export class ForgetPasswordComponent {
         phoneNo: formData.get('phoneNo')?.value,
       };
   
-      this.emp.postEmployee(data).subscribe((result) => {
+      this.emp.registerEmployee(data).subscribe((result) => {
         console.log(result);
         alert('Individual is added to the system. Keep growing :)');
       });

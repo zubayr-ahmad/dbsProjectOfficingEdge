@@ -14,15 +14,15 @@ export class EmployeesDataService {
   getEmployeesUrl = 'https://hub.dummyapis.com/employee?noofRecords=10&idStarts=1001' // good api
 
   
-  postemployeeURL = 'https://reqres.in/api/users'
+  registerEmployeeUrl = 'https://officingedge.azurewebsites.net/Register'
   employeeshowURL = 'https://reqres.in/api/users?page=2'
   postDeleteEmployeeURL = 'https://reqres.in/api/users'
-  employeesGet(){
+  getEmployeesList(){
     return this.emp.get(this.getEmployeesUrl);
   }
 
-  postEmployee(employee:any){
-    return this.emp.post(this.postemployeeURL,employee);
+  registerEmployee(employee:any){
+    return this.emp.post(this.registerEmployeeUrl,employee);
 
   }
   

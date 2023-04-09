@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
+import { UserRegister } from 'src/app/Interfaces/userRegister.interface';
 @Component({
   selector: 'app-emp-adding',
   templateUrl: './emp-adding.component.html',
@@ -53,6 +54,8 @@ export class EmpAddingComponent {
   storeEmployee(formData: any): any {
     if (formData.valid) {
       let empRole01 = 2;
+      let userName01 = formData.get('firstName')?.value[0] + formData.get('lastName')?.value
+      let companyEmail01 = userName01+'@officingEdge.com'
       if (formData.get('empType')?.value == true) {
         empRole01 = 1;
       }
@@ -60,20 +63,24 @@ export class EmpAddingComponent {
       let ed = formData.get('shiftEndTime')?.value;
       let durationinMinutes = this.convertToMinutes(st,ed)
 
-      let data = {
-        fname: formData.get('firstName')?.value,
-        lname: formData.get('lastName')?.value,
+      let data:UserRegister = {
+        firstName: formData.get('firstName')?.value,
+        lastName: formData.get('lastName')?.value,
+        username:userName01,
         email: formData.get('email')?.value,
-        dept: formData.get('department')?.value,
-        empType: formData.get('empType')?.value,
-        empRole: empRole01,
-        shiftStartTime: formData.get('shiftStartTime')?.value,
-        shiftEndTime: formData.get('shiftEndTime')?.value,
-        duration: durationinMinutes,
-        phoneNo: formData.get('phoneNo')?.value.nationalNumber,
+        companyEmail:companyEmail01,
+        password:'Office@123',
+        phoneNumber: formData.get('phoneNo')?.value.nationalNumber,
+        userRole: empRole01,
+        empDepId: formData.get('department')?.value,
+        empTypeId: formData.get('empType')?.value,
+        shiftStart: formData.get('shiftStartTime')?.value,
+        shiftEnd: formData.get('shiftEndTime')?.value,
+        shiftDuration: durationinMinutes,
+        
       };
-
-      this.emp.postEmployee(data).subscribe((result) => {
+      console.log(data)
+      this.emp.registerEmployee(data).subscribe((result) => {
         console.log(result);
         alert('Form submitted successfully');
       });
@@ -83,6 +90,8 @@ export class EmpAddingComponent {
     }
   }
 
+  
+  //Function for calculating the duration of the employee time
   convertToMinutes(st: string, ed: string) {
     // Convert start time and end time to Date objects
     const startDate = new Date();
