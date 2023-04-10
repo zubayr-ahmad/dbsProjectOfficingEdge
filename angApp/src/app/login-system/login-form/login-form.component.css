@@ -4,7 +4,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
     
-    background-image: url('../../../assets/Images/Login/img05.jpg');
+    background-image: url('../../../assets/Images/Login/3425225.jpg');
+
     background-repeat:no-repeat;
     background-size:cover ;
     
@@ -38,6 +39,7 @@
 }
 
 .emailBox input{
+    margin-left: 33px;
     background: rgba(255,255,255,0.1);
 }
 
@@ -57,8 +59,8 @@
     display: flex;
     justify-content: right;
     position: relative;
-    top: 20px;
-    right: 86px;
+    top: 25px;
+    right: 5px;
     font-size: 12px;
 }
 .loginButton{
@@ -70,7 +72,7 @@
     position: relative;
     font-size: 18px;
     border-radius: 12px;
-    top: 8px;
+    top: 15px;
     transition: 200ms;
 }
 
@@ -105,74 +107,3 @@
     top: 10px;
 }
 
-.invalid-text{
-    margin-top: 15px;
-    color: red;
-}
-
-
-/* .loginform{
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    
-    background-image: url('../../../assets/Images/Login/image02.jpg');
-    background-repeat:no-repeat;
-    background-size:cover ;
-    
-    background-color: var(--bgPrimaryColor) ;
-    color: var(--primaryColor);
-    border: 2px solid var(--bgPrimaryColor);
-    height: var(--formHeight);
-    width: var(--formWidth);
-    
-}
-
-
-.emailBox,.passwordBox{
-    margin-top: 20px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    
-}
-
-.loginform i{  
-    padding: 5px;
-    font-size: 16px;
-}
-
-
-.loginform input{
-    padding: 5px;
-    color: white;
-    background-color: var(--bgTertiaryColor);
-    border: none;
-    border-radius: 5px;
-    width: var(--inputWidth);    
-}
-
-.emailBox input{
-    margin-left: 33px;
-}
-
-.loginform label{
-    margin-right: 10px;
-    margin-left: 5px;
-    font-size: var(--primaryFontSize);
-}
-
-.invalid{
-    margin-left: 167px;
-}
-
-.forgetPassword a{
-    text-decoration: none;
-    color: var(--primaryColor);
-}
-.loginButton{
-    background-color: var(--primaryColor);
-    color: rgb(0, 0, 0);
-} */
