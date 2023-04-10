@@ -9,9 +9,11 @@ import { Route, Router } from '@angular/router';
 export class ShowEmployeesComponent implements OnInit{
   allEmployees:any;
   today = new Date();
+  totalEmployees:any;
   constructor(private empsData:EmployeesDataService, private router:Router){
-    empsData.employeesGet().subscribe((data)=>{
-      this.allEmployees= data;
+    empsData.getEmployeesList().subscribe((data:any)=>{
+      this.allEmployees= data.result.allUser;
+      this.totalEmployees = this.allEmployees.length
       console.log(data)
     })
   }

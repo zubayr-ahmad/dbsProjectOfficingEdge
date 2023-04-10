@@ -7,10 +7,18 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 
 // Extras
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { JwtHelperService,JwtModule  } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [LoginFormComponent, ForgetPasswordComponent, ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, NgxIntlTelInputModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, NgxIntlTelInputModule,     JwtModule.forRoot({
+    config: {
+      tokenGetter: () => localStorage.getItem('access_token'),
+      allowedDomains: ['https://officingedge.azurewebsites.net'],
+      disallowedRoutes: [''],
+    },
+  }),],
   exports: [LoginFormComponent, ForgetPasswordComponent],
+  providers: [JwtHelperService],
 })
 export class LoginSystemModule { }

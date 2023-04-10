@@ -5,6 +5,7 @@
     transform: translate(-50%, -50%);
     
     background-image: url('../../../assets/Images/Login/3425225.jpg');
+
     background-repeat:no-repeat;
     background-size:cover ;
     
@@ -105,3 +106,4 @@
     position: relative;
     top: 10px;
 }
+

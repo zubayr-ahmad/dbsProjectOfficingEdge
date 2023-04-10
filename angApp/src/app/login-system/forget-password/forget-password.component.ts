@@ -68,31 +68,31 @@ export class ForgetPasswordComponent {
     };
   }
 
-
-  storeEmployee(formData: any): any {
-    if (formData.valid) {
-      let data = {
-        fname: formData.get('firstName')?.value,
-        lname: formData.get('lastName')?.value,
-        email: formData.get('email')?.value,
-        dept: formData.get('department')?.value,
-        empType: formData.get('empType')?.value,
-        empRole: formData.get('empRole')?.value,
-        shiftStartTime: formData.get('shiftStartTime')?.value,
-        shiftEndTime: formData.get('shiftEndTime')?.value,
-        phoneNo: formData.get('phoneNo')?.value,
-      };
+  storeEmployee(formData: any){}
+  // storeEmployee(formData: any): any {
+  //   if (formData.valid) {
+  //     let data = {
+  //       fname: formData.get('firstName')?.value,
+  //       lname: formData.get('lastName')?.value,
+  //       email: formData.get('email')?.value,
+  //       dept: formData.get('department')?.value,
+  //       empType: formData.get('empType')?.value,
+  //       empRole: formData.get('empRole')?.value,
+  //       shiftStartTime: formData.get('shiftStartTime')?.value,
+  //       shiftEndTime: formData.get('shiftEndTime')?.value,
+  //       phoneNo: formData.get('phoneNo')?.value,
+  //     };
   
-      this.emp.postEmployee(data).subscribe((result) => {
-        console.log(result);
-        alert('Individual is added to the system. Keep growing :)');
-      });
-    } else {
-      // Mark all the controls as touched to show validation messages
-      this.empAdd.markAllAsTouched();
-    }
+  //     this.emp.registerEmployee(data).subscribe((result) => {
+  //       console.log(result);
+  //       alert('Individual is added to the system. Keep growing :)');
+  //     });
+  //   } else {
+  //     // Mark all the controls as touched to show validation messages
+  //     this.empAdd.markAllAsTouched();
+  //   }
 
-  }
+  // }
 
   depart: any[] = [
     { deptName: 'IT', deptValue: 1 },
