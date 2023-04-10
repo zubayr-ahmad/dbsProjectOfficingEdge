@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserRegister } from '../Interfaces/userRegister.interface';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesDataService {
 
-  constructor(private emp:HttpClient) {  }
+  constructor(private http:HttpClient) {  }
 
   url1 = 
   'https://hub.dummyapis.com/vj/kkoCBHN';
@@ -14,19 +15,29 @@ export class EmployeesDataService {
   getEmployeesUrl = 'https://hub.dummyapis.com/employee?noofRecords=10&idStarts=1001' // good api
 
   
-  registerEmployeeUrl = 'https://officingedge.azurewebsites.net/Register'
+  
   employeeshowURL = 'https://reqres.in/api/users?page=2'
   postDeleteEmployeeURL = 'https://reqres.in/api/users'
   getEmployeesList(){
-    return this.emp.get(this.getEmployeesUrl);
+    const getAllEmployeesUrl = 'https://officingedge.azurewebsites.net/GetAllUser'
+    return this.http.get(getAllEmployeesUrl);
   }
 
-  registerEmployee(employee:any){
-    return this.emp.post(this.registerEmployeeUrl,employee);
+  registerEmployee(employee:UserRegister){
+    const registerEmployeeUrl = 'https://officingedge.azurewebsites.net/Register'
+    let token=localStorage.getItem('access_token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "content-type": "application/json",
+        // 'Authorization': `Bearer ${token}`
+      })
+    };
+    return this.http.post(registerEmployeeUrl,employee);
 
   }
   
   deleteEmployee(empID:any){
-    return this.emp.post(this.postDeleteEmployeeURL,empID);
+    const deleteEmployeeUrl = 'https://officingedge.azurewebsites.net/DeleteUser'
+    return this.http.delete(deleteEmployeeUrl,{params:{id:empID}});
   }
 }

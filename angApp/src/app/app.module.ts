@@ -9,6 +9,7 @@ import { LoginSystemModule } from './login-system/login-system.module';
 import { UserinterfaceModule } from './userinterface/userinterface.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './errorComponents/page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,

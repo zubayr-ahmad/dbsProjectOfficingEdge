@@ -4,6 +4,119 @@
     top: 50%;
     transform: translate(-50%, -50%);
     
+    background-image: url('../../../assets/Images/Login/img05.jpg');
+    background-repeat:no-repeat;
+    background-size:cover ;
+    
+    color: var(--primaryColor);
+    height: var(--formHeight);
+    width: var(--formWidth);
+    
+}
+
+
+.emailBox,.passwordBox{
+    margin-top: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.loginform i{  
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+.loginform input{
+    padding: 5px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 8px;
+    width: var(--inputWidth);
+}
+
+.emailBox input{
+    background: rgba(255,255,255,0.1);
+}
+
+.loginform label{
+    margin-right: 10px;
+    margin-left: 5px;
+    font-size: var(--primaryFontSize);
+}
+
+.invalid{
+    margin-left: 167px;
+}
+
+.forgetPassword a{
+    text-decoration: none;
+    color: var(--primaryColor);
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: 20px;
+    right: 86px;
+    font-size: 12px;
+}
+.loginButton{
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    border-radius: 12px;
+    top: 8px;
+    transition: 200ms;
+}
+
+.loginButton:hover{
+    background-color: var(--secondaryColor);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    border-radius: 12px;
+    top: 15px;
+}
+
+#bg{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.loginform .heading{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 5px;
+}
+
+.loginform .logo{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10px;
+}
+
+.invalid-text{
+    margin-top: 15px;
+    color: red;
+}
+
+
+/* .loginform{
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
     background-image: url('../../../assets/Images/Login/image02.jpg');
     background-repeat:no-repeat;
     background-size:cover ;
@@ -62,4 +175,4 @@
 .loginButton{
     background-color: var(--primaryColor);
     color: rgb(0, 0, 0);
-}
+} */

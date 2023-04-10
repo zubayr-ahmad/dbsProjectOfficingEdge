@@ -2,10 +2,16 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
 <div id="completeScreen">
-
+    <img id = "bg" src="../../../assets/Images/Login/img05.jpg" alt="">
     <div class="loginform">
         <form [formGroup]="loginForm" (ngSubmit)="checkUserVerification(loginForm)">
+            <div class = "logo">
+                <img src="../../../assets/Images/Login/image06-logo.png" alt="">
+            </div>
 
+            <div class="heading">
+                <h1>OFFICING EDGE</h1>
+            </div>
             <div class="emailBox">
                 <i class='bx bx-user'></i>
                 <label for="username">Username</label>
@@ -32,7 +38,7 @@
                 <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
             </div>
 
-            <div class="invalid-text">
+            <div *ngIf="showInvalidUserText" class="invalid-text">
                 <p>Invalid username or password</p>
             </div>
             <button type="submit" class="loginButton">Login</button>

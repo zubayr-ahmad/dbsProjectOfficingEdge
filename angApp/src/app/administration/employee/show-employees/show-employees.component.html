@@ -6,11 +6,11 @@
     </div>
     <div class="boxes">
       <div class="box">
-        <div class="value">1</div>
+        <div class="value">{{totalEmployees}}</div>
         <div class="text">Total</div>
       </div>
       <div class="box">
-        <div class="value">3</div>
+        <div class="value">92</div>
         <div class="text">Performance</div>
       </div>
       <div class="box">
@@ -54,12 +54,13 @@
       <tr *ngIf="isRowExpanded(i)">
         <td  colspan="5">
           <p><strong>ID:</strong> {{emp.id}}</p>
-          <p><strong>Contact No:</strong> {{emp.ContactNumber}}</p>
-          <p><strong>Age:</strong> {{emp.age}}</p>
-          <p><strong>Date of Birth:</strong> {{emp.dob}}</p>
-          <p><strong>Salary:</strong> {{emp.salary}}</p>
-          <p><strong>Address:</strong> {{emp.address}}</p>
-          <button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(i)">Delete Employees</button>
+          <p><strong>Email:</strong> {{emp.email}}</p>
+          <p><strong>Company Email:</strong> {{emp.companyEmail}}</p>
+          <p><strong>Username:</strong> {{emp.userName}}</p>
+          <p><strong>Phone Number:</strong> {{emp.phoneNumber}}</p>
+
+
+          <button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(emp.id)">Delete Employees</button>
         </td>
       </tr>
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { catchError } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
 
 import { userLogin } from 'src/app/Interfaces/userLogin.interface';
 import { LoginService } from 'src/app/services/login.service';
@@ -11,12 +14,16 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginFormComponent implements OnInit{
   loginForm: FormGroup; // form name
+  loginResponse:any;
+  decodeToken:any;
+  showInvalidUserText:boolean = false;
+  
 
   // Initiating login form, routing and login service
   constructor(private fb: FormBuilder,
     private router:Router,
     private _loginService:LoginService,
-
+    private _jwtHelper: JwtHelperService
     ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -35,14 +42,51 @@ export class LoginFormComponent implements OnInit{
   checkUserVerification(data: FormGroup) {
     if (data.valid){
       let user:userLogin={
-        userName:data.get('email')?.value,
+        userName:data.get('username')?.value,
         password:data.get('password')?.value,
       }
-      this._loginService.getLoginResponse(user).subscribe((response)=>{
-        console.log(response)
-      }, error => {
-        console.error(error);
-      })
+      this._loginService.getLoginResponse(user)
+      .pipe(
+        catchError((error: any, caught: Observable<any>) => {
+          // Check if the error has an isSuccess key with a value of false
+          if (error.error && error.error.isSuccess === false) {
+            // Handle the error as desired
+            this.showInvalidUserText = true
+            console.log('Login failed: ', error.error.errorMessage);
+          } else {
+            // If the error does not have an isSuccess key with a value of false, re-throw the error
+            return throwError(error);
+          }
+          // Return an observable to satisfy the catchError operator
+          return of(null);
+        })
+      )
+      .subscribe((response:any)=>{
+        if (response.isSuccess===true){
+          this.loginResponse = response
+          this.decodeToken = this._jwtHelper.decodeToken(this.loginResponse.result.token)
+          console.log(response)
+          console.log(this.decodeToken)
+          let userRole = this.decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+          if (userRole ==="Admin"){
+            console.log('Inside Admin')
+            localStorage.setItem('acces_token',this.loginResponse.result.token)
+            this.router.navigate(['/adminHome'])
+          }
+          else if(userRole ==="User"){
+            console.log('Inside User')
+            this.router.navigate(['/userHome'])
+          }
+          
+        } 
+        else{
+          console.log('Invalid User')
+          }
+
+      }
+      
+      )
+      
     }
 
     else{

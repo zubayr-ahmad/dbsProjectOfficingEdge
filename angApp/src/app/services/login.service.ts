@@ -3,21 +3,14 @@ import { Injectable } from '@angular/core';
 import { userLogin } from '../Interfaces/userLogin.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  getLoginResponse(data:userLogin){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      withCredentials: true // Add this option
-    };
-
-    let url = 'https://officingedge.azurewebsites.net/Login'
-    return this.http.post(url,{params:{data}})
+  getLoginResponse(data: userLogin) {
+    // data={userName:"string",password:"Office@123"}
+    let url = 'https://officingedge.azurewebsites.net/Login';
+    return this.http.post(url, data);
   }
 }

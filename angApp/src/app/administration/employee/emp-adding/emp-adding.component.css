@@ -3,7 +3,7 @@ small {
   color: red;
 }
 
-/* .formBox {
+.formBox {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -63,4 +63,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0062cc;
-} */
+}
