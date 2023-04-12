@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError } from 'rxjs/operators';
-import { Observable, of, throwError } from 'rxjs';
+import { of} from 'rxjs';
 
 import { userLogin } from 'src/app/Interfaces/userLogin.interface';
 import { LoginService } from 'src/app/services/login.service';
@@ -47,17 +47,13 @@ export class LoginFormComponent implements OnInit{
       }
       this._loginService.getLoginResponse(user)
       .pipe(
-        catchError((error: any, caught: Observable<any>) => {
-          // Check if the error has an isSuccess key with a value of false
-          if (error.error && error.error.isSuccess === false) {
-            // Handle the error as desired
-            this.showInvalidUserText = true
+        catchError((error: any) => {
+          if (error.error.isSuccess === false) {
+            this.showInvalidUserText = true;
             console.log('Login failed: ', error.error.errorMessage);
           } else {
-            // If the error does not have an isSuccess key with a value of false, re-throw the error
-            return throwError(error);
+            throwIfFalsy(() => error);
           }
-          // Return an observable to satisfy the catchError operator
           return of(null);
         })
       )
@@ -109,3 +105,7 @@ export class LoginFormComponent implements OnInit{
 
 
 }
+function throwIfFalsy(arg0: () => any) {
+  throw new Error('Function not implemented.');
+}
+
