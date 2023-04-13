@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+// import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
@@ -29,7 +29,7 @@ import { ShowDepartmentsComponent } from './department/show-departments/show-dep
     ReactiveFormsModule,
     RouterModule,
     FormsModule,
-    NgxIntlTelInputModule,
+    // NgxIntlTelInputModule,
     
   ],
   exports: [

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
+// import { CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
 
 import {
   FormGroup,
@@ -21,8 +21,8 @@ export class EmpAddingComponent {
   empAdd: FormGroup;
   today = new Date();
 
-  CountryISO = CountryISO;
-  SearchCountryField = SearchCountryField;
+  // CountryISO = CountryISO;
+  // SearchCountryField = SearchCountryField;
 
   constructor(
     private formbiulder: FormBuilder,

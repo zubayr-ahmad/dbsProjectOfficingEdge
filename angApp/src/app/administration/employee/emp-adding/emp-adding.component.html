@@ -77,12 +77,13 @@
     </div>
 
     <div class="phonNo">
-      <ngx-intl-tel-input formControlName="phoneNo" [cssClass]="'custom'"
+      <!-- <ngx-intl-tel-input formControlName="phoneNo" [cssClass]="'custom'"
         [preferredCountries]="[CountryISO.Pakistan, CountryISO.UnitedKingdom]" [enableAutoCountrySelect]="true"
         [enablePlaceholder]="true" [searchCountryFlag]="true"
         [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
         [selectedCountryISO]="CountryISO.Pakistan" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true">
-      </ngx-intl-tel-input>
+      </ngx-intl-tel-input> -->
+      <input type="tel" formContolName="phoneNo">
       <div *ngIf="empAdd.get('phoneNo')?.touched">
         <small *ngIf="empAdd.get('phoneNo')?.hasError('required') && empAdd.get('phoneNo')?.invalid">Phone number is
           required</small>
