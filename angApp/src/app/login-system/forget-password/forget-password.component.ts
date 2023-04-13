@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CountryISO,SearchCountryField  } from 'ngx-intl-tel-input';
+// import { CountryISO,SearchCountryField  } from 'ngx-intl-tel-input';
 import { FormControl,FormGroup,Validators,FormBuilder, Form } from '@angular/forms';
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
 interface loginFormData{
@@ -16,8 +16,8 @@ interface loginFormData{
 export class ForgetPasswordComponent {
   empAdd: FormGroup;
 
-  CountryISO = CountryISO;
-  SearchCountryField= SearchCountryField;
+  // CountryISO = CountryISO;
+  // SearchCountryField= SearchCountryField;
 
   // fisrtName: string = '';
   // lastName: string = '';
