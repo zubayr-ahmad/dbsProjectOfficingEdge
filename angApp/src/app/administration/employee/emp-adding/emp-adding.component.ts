@@ -61,8 +61,8 @@ export class EmpAddingComponent {
         email: formData.get('email')?.value,
         companyEmail: companyEmail01,
         password: 'Office@123',
-        // phoneNumber: formData.get('phoneNo')?.value,
-        phoneNumber: '00000000000',
+        phoneNumber: formData.get('phoneNo')?.value,
+        // phoneNumber: '00000000000',
         userRole: empRole01,
         empDepId: formData.get('department')?.value,
         // empDepId: 500,
@@ -82,6 +82,7 @@ export class EmpAddingComponent {
         alert('Employee added successfully! Keep growing :)');
       });
     } else {
+      this.loading = false
       // Mark all the controls as touched to show validation messages
       this.empAdd.markAllAsTouched();
     }
