@@ -11,12 +11,15 @@ export class ShowEmployeesComponent implements OnInit{
   today = new Date();
   totalEmployees!: number;
   loading: boolean = false;
+  fetchingAllEmployees:boolean = false;
 
   constructor(private empsData:EmployeesDataService, private router:Router){
+    this.fetchingAllEmployees = true
     empsData.getEmployeesList().subscribe((data:any)=>{
       this.allEmployees= data.result.allUser;
       this.totalEmployees = this.allEmployees.length
       console.log(data)
+      this.fetchingAllEmployees = false
     })
 
   }
