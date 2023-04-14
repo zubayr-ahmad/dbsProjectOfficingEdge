@@ -7,15 +7,18 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./show-employees.component.css']
 })
 export class ShowEmployeesComponent implements OnInit{
-  allEmployees:any;
+  allEmployees:any = false;
   today = new Date();
-  totalEmployees:any;
+  totalEmployees!: number;
+  loading: boolean = false;
+
   constructor(private empsData:EmployeesDataService, private router:Router){
     empsData.getEmployeesList().subscribe((data:any)=>{
       this.allEmployees= data.result.allUser;
       this.totalEmployees = this.allEmployees.length
       console.log(data)
     })
+
   }
 
   ngOnInit(): void {
@@ -25,9 +28,17 @@ export class ShowEmployeesComponent implements OnInit{
   show(){
     console.log(this.allEmployees)
   }
-  deleteEmployee(empId:any){
-    this.empsData.deleteEmployee(empId).subscribe((result)=>{
-      console.log(empId)
+  deleteEmployee(empId:any, index:number){
+    this.loading = true;
+    this.empsData.deleteEmployee(empId).subscribe((result:any)=>{
+      console.log(result)
+      if (result.isSuccess == true){
+        this.allEmployees.splice(index,1)   // Remove the item from temp list
+        this.totalEmployees -= 1 // decrease total number of employees
+        this.expandedRows.splice(this.expandedRows.indexOf(index), 1);
+        alert(result.displayMessage)
+        this.loading = false
+      }
     })
   }
 

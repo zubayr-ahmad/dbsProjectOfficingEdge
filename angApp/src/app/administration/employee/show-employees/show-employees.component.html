@@ -60,7 +60,7 @@
           <p><strong>Phone Number:</strong> {{emp.phoneNumber}}</p>
 
 
-          <button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(emp.id)">Delete Employees</button>
+          <button class="btn btn-outline-danger me-2" type="button" (click)="deleteEmployee(emp.id,i)">{{loading ? 'Deleting...' : 'Delete Employee'}}</button>
         </td>
       </tr>
 
