@@ -12,6 +12,7 @@ import {
 
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
 import { UserRegister } from 'src/app/Interfaces/userRegister.interface';
+import { catchError, of } from 'rxjs';
 @Component({
   selector: 'app-emp-adding',
   templateUrl: './emp-adding.component.html',
@@ -21,7 +22,7 @@ export class EmpAddingComponent {
   empAdd: FormGroup;
   today = new Date();
   loading:boolean = false;
-
+  isAnError:boolean = false;
   // CountryISO = CountryISO;
   // SearchCountryField = SearchCountryField;
 
@@ -76,10 +77,27 @@ export class EmpAddingComponent {
       };
       console.log(data);
 
-      this.emp.registerEmployee(data).subscribe((result) => {
+      this.emp.registerEmployee(data)
+      .pipe(
+        catchError((error: any) => {
+          if (error.error.isSuccess === false) {
+            this.isAnError = true
+            alert(error.error.errorMEssages)
+            console.log('Login failed: ', error.error.errorMessage);
+          } else {
+            throwIfFalsy(() => error);
+          }
+          return of(null);
+        })
+      )
+      
+      .subscribe((result) => {
         console.log(result);
         this.loading = false
-        alert('Employee added successfully! Keep growing :)');
+        if (this.isAnError == false){
+          alert('Employee added successfully! Keep growing :)');
+        }
+        
       });
     } else {
       this.loading = false
@@ -146,3 +164,7 @@ export class EmpAddingComponent {
     { typeName: 'User', typeValue: 2 },
   ];
 }
+function throwIfFalsy(arg0: () => any) {
+  throw new Error('Function not implemented.');
+}
+
