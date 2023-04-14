@@ -20,6 +20,7 @@ import { UserRegister } from 'src/app/Interfaces/userRegister.interface';
 export class EmpAddingComponent {
   empAdd: FormGroup;
   today = new Date();
+  loading:boolean = false;
 
   // CountryISO = CountryISO;
   // SearchCountryField = SearchCountryField;
@@ -37,15 +38,12 @@ export class EmpAddingComponent {
       isAdmin: new FormControl(false),
       shiftStartTime: new FormControl(null, Validators.required),
       shiftEndTime: new FormControl(null, Validators.required),
-      phoneNo: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(15),
-      ]),
+      phoneNo: new FormControl(null),
     });
   }
 
   storeEmployee(formData: any): any {
+    this.loading = true
     if (formData.valid) {
       let empRole01 = formData.get('isAdmin')?.value ? 0 : 1;
       let userName01 =
@@ -63,7 +61,8 @@ export class EmpAddingComponent {
         email: formData.get('email')?.value,
         companyEmail: companyEmail01,
         password: 'Office@123',
-        phoneNumber: formData.get('phoneNo')?.value.nationalNumber,
+        // phoneNumber: formData.get('phoneNo')?.value,
+        phoneNumber: '00000000000',
         userRole: empRole01,
         empDepId: formData.get('department')?.value,
         // empDepId: 500,
@@ -79,6 +78,7 @@ export class EmpAddingComponent {
 
       this.emp.registerEmployee(data).subscribe((result) => {
         console.log(result);
+        this.loading = false
         alert('Employee added successfully! Keep growing :)');
       });
     } else {

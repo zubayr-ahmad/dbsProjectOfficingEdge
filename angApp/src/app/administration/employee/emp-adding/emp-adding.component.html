@@ -83,15 +83,16 @@
         [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
         [selectedCountryISO]="CountryISO.Pakistan" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="true">
       </ngx-intl-tel-input> -->
+      <label for="">Phone number</label>
       <input type="tel" formContolName="phoneNo">
-      <div *ngIf="empAdd.get('phoneNo')?.touched">
+      <!-- <div *ngIf="empAdd.get('phoneNo')?.touched">
         <small *ngIf="empAdd.get('phoneNo')?.hasError('required') && empAdd.get('phoneNo')?.invalid">Phone number is
           required</small>
         <small *ngIf="empAdd.get('phoneNo')?.invalid && !(empAdd.get('phoneNo')?.hasError('required'))">Invalid phone
           number</small>
-      </div>
+      </div> -->
     </div>
-    <button type="submit" class="submitButton">Add Employee</button>
+    <button type="submit" class="submitButton">{{loading ? 'Adding...' : 'Add Employee'}}</button>
   </form>
 </div>
 

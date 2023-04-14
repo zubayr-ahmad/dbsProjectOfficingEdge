@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HashLocationStrategy, LocationStrategy } from '@angular/common'; //For deployment reload issue
+
 import { AdministrationModule } from './administration/administration.module';
 import { LoginSystemModule } from './login-system/login-system.module';
 
@@ -27,7 +30,7 @@ import { PageNotFoundComponent } from './errorComponents/page-not-found/page-not
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
