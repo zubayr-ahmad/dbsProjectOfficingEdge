@@ -1,6 +1,31 @@
-
 <div class="check-in-out">
-    <p *ngIf="showthepara" class="boldPara">Punch in to start the shift</p>
-    <button class="check-btn" (click)="shiftStart()">Check-in</button>
-    <p *ngIf="!showthepara">Checked in at: {{timeStart | date:'h:mm a'}}</p>
+    <div *ngIf="checkinStatus !== 2">
+    <div *ngIf="checkinStatus===0">
+        <p class="boldPara">Punch in to start your day</p>
+        <button class="check-btn" (click)="shiftStart()">Check in</button>
+    </div>
+    <div *ngIf="checkinStatus === 1">
+        <p class="boldPara">Checkout to complete your shift</p>
+        <button class="check-btn" (click)="shiftEnd()">Checkout</button>
+        <p>Checked in at: {{shiftStartTime | date:'h:mm a'}}</p>
+    </div>
 </div>
+<div *ngIf="checkinStatus === 2">
+    <h2 style="font-weight: bold;">Shift started at {{shiftStartTime | date:'short'}} and ended at {{shiftEndTime | date:'short'}}</h2>
+</div>
+    
+</div>     
+
+
+
+
+
+
+
+
+
+<!-- <div class="check-in-out">
+    <p *ngIf="showthepara" class="boldPara">Punch in to start the shift</p>
+    <button *ngIf="(checkinStatus != 0) && (checkinStatus === 1 || checkinStatus === 2)" class="check-btn" (click)="checkinStatus === 1 ? shiftStart() : shiftEnd()">{{checkinStatus === 1? 'Checkout' : 'Check in'}}</button>
+    <p *ngIf="!showthepara">Checked in at: {{timeStart | date:'h:mm a'}}</p>
+</div>         -->

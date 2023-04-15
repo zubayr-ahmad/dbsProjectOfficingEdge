@@ -42,7 +42,7 @@
         <div *ngIf="showInvalidUserText" class="invalid-user">
             Invalid username or password
         </div>
-        <button type="submit" class="loginButton">Login</button>
+        <button type="submit" class="loginButton">{{loading ? 'verifying....' : 'Login'}}</button>
         <div class="forgetPassword">
             <a [routerLink]="'/forgetPassword'">Forgot Password?</a>
         </div>
