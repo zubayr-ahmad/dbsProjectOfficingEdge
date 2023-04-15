@@ -13,6 +13,7 @@ import {
 import { EmployeesDataService } from 'src/app/services/employees-data.service';
 import { UserRegister } from 'src/app/Interfaces/userRegister.interface';
 import { catchError, of } from 'rxjs';
+import { DepartmentService } from 'src/app/services/department.service';
 @Component({
   selector: 'app-emp-adding',
   templateUrl: './emp-adding.component.html',
@@ -28,7 +29,9 @@ export class EmpAddingComponent {
 
   constructor(
     private formbiulder: FormBuilder,
-    private emp: EmployeesDataService
+    private emp: EmployeesDataService,
+    private _departmentService:DepartmentService,
+
   ) {
     this.empAdd = formbiulder.group({
       firstName: new FormControl('', Validators.required),
@@ -41,6 +44,9 @@ export class EmpAddingComponent {
       shiftEndTime: new FormControl(null, Validators.required),
       phoneNo: new FormControl(null),
     });
+    this._departmentService.getDepartments().subscribe((response:any)=>{
+      this.depart = response.result.departmentList
+    })
   }
 
   storeEmployee(formData: any): any {
@@ -145,12 +151,13 @@ export class EmpAddingComponent {
     return workingMinutes;
   }
 
-  depart: any[] = [
-    { deptName: 'IT', deptValue: 1 },
-    { deptName: 'Accounts', deptValue: 2 },
-    { deptName: 'Adminisstration', deptValue: 3 },
-    { deptName: 'Quality Assurance', deptValue: 4 },
-  ];
+  // depart: any[] = [
+  //   { deptName: 'IT', deptValue: 1 },
+  //   { deptName: 'Accounts', deptValue: 2 },
+  //   { deptName: 'Adminisstration', deptValue: 3 },
+  //   { deptName: 'Quality Assurance', deptValue: 4 },
+  // ];
+  depart: any;
 
   typeEmployee: any[] = [
     { typeName: 'part-time', typeValue: 1 },

@@ -34,7 +34,7 @@
       <label for="department">Department</label>
       <select id="department" name="department" formControlName="department">
         <option value="null" selected disabled>Select Department</option>
-        <option *ngFor="let department of depart" [value]="department.deptValue">{{ department.deptName }}</option>
+        <option *ngFor="let department of depart" [value]="department.depId">{{ department.name }}</option>
       </select>
       <div
         *ngIf="empAdd.get('department')?.invalid && (empAdd.get('department')?.dirty || empAdd.get('department')?.touched)">

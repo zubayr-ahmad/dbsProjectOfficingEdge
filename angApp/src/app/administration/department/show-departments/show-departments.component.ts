@@ -7,15 +7,22 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./show-departments.component.css']
 })
 export class ShowDepartmentsComponent implements OnInit{
+  fetchingAllDepartments:boolean = false;
+
+
+
   constructor(private _departmentService:DepartmentService, private router: Router){}
 
-  departments:any;
+  alldepartments:any;
+  totalDepartments !: number;
   today = new Date();
   ngOnInit(): void {
     this._departmentService.getDepartments().subscribe((response:any)=>{
-      this.departments=response.kind
+      this.alldepartments=response.result.departmentList
+      this.totalDepartments = this.alldepartments.length
+      console.log('Respnose: ',response)
     })
-    console.log(this.departments)
+    
   }
 
   addDeptForm(){
