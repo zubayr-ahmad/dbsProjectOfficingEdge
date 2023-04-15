@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit{
   loginResponse:any;
   decodeToken:any;
   showInvalidUserText:boolean = false;
+  loading:boolean = false;
   
 
   // Initiating login form, routing and login service
@@ -41,6 +42,7 @@ export class LoginFormComponent implements OnInit{
   // API call function for user authentication
   checkUserVerification(data: FormGroup) {
     if (data.valid){
+      this.loading = true
       let user:userLogin={
         userName:data.get('username')?.value,
         password:data.get('password')?.value,
@@ -49,6 +51,7 @@ export class LoginFormComponent implements OnInit{
       .pipe(
         catchError((error: any) => {
           if (error.error.isSuccess === false) {
+            this.loading = false
             this.showInvalidUserText = true;
             console.log('Login failed: ', error.error.errorMessage);
           } else {
@@ -59,6 +62,7 @@ export class LoginFormComponent implements OnInit{
       )
       .subscribe((response:any)=>{
         if (response.isSuccess===true){
+          this.loading = true
           this.loginResponse = response
           this.decodeToken = this._jwtHelper.decodeToken(this.loginResponse.result.token)
           console.log(response)

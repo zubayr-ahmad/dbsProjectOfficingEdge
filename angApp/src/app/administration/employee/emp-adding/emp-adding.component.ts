@@ -90,7 +90,7 @@ export class EmpAddingComponent {
           return of(null);
         })
       )
-      
+
       .subscribe((result) => {
         console.log(result);
         this.loading = false

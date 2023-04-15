@@ -90,4 +90,10 @@ form {
 .error {
     color: red;
   }
+
+  .btnColor{
+    background-color: rgb(159, 31, 245);
+    border: none;
+    
+  }
   
