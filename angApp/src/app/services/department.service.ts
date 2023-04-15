@@ -9,6 +9,7 @@ export class DepartmentService {
   getDataUrl = 'https://tenders.guru/api/ua/tenders/'
   constructor(private http:HttpClient) { }
   getDepartments(){
-    return this.http.get(this.getDataUrl)
+    const getAllDepartmentsUrl = 'https://officingedge.azurewebsites.net/GetDepartmentList'
+    return this.http.get(getAllDepartmentsUrl)
   }
 }
