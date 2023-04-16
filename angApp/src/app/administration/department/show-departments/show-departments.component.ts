@@ -28,4 +28,28 @@ export class ShowDepartmentsComponent implements OnInit{
   addDeptForm(){
     this.router.navigate(['adminHome/department/addDepartment'])
   }
+
+
+
+    // Below is the code to show description and comments on button click
+    expandedRows: any[] = [];
+    toggleRow(index: number) {
+      // Removes the index if it is included in expandedRows otherwise push it in
+      if (this.expandedRows.includes(index)) {
+        this.expandedRows.splice(this.expandedRows.indexOf(index), 1);
+      } else {
+        this.expandedRows.push(index);
+      }
+    }
+  
+    isRowExpanded(index: number) {
+      return this.expandedRows.includes(index);
+    }
+  
+  
+  
+
+
+
+
 }

@@ -1,0 +1,59 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .inpName input[type="text"], .inpDesc textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+  }
+  
+  .inpName input {
+    width: 100%;
+    height: 40px;
+  }
+  
+  .inpDesc textarea {
+    height: 100px;
+  }
+  
+  button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(159, 31, 245);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: rgb(116, 24, 177);
+  }
+  
+  .inpName input:focus, .inpDesc textarea:focus {
+    outline: none;
+    border: 1px solid rgb(159, 31, 245);
+    box-shadow: 0 0 3px rgb(159, 31, 245);
+  }
+  
