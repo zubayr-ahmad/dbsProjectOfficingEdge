@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Department } from '../Interfaces/department.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,5 +12,10 @@ export class DepartmentService {
   getDepartments(){
     const getAllDepartmentsUrl = 'https://officingedge.azurewebsites.net/GetDepartmentList'
     return this.http.get(getAllDepartmentsUrl)
+  }
+
+  addDepartment(dept:Department){
+    const addDepartmentUrl = 'https://officingedge.azurewebsites.net/AddDepartment'
+    return this.http.post(addDepartmentUrl,dept)
   }
 }

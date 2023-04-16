@@ -35,12 +35,18 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let dept of alldepartments; let i = index">
-        <tr>
+        <tr (click)="toggleRow(i)">
           <td>{{dept.depId}}</td>
           <td>{{dept.name}}</td>
-          <td>{{dept.description}}</td>
-          <!-- <td>{{dept.employees}}</td> -->
+          <td><button class="btn btn-outline-primary me-2" type="button">{{ isRowExpanded(i) ? 'Hide' : 'Description'
+          }}</button></td>
           
+        </tr>
+
+        <tr *ngIf="isRowExpanded(i)">
+          <td  colspan="5">
+            <p><strong>Description: </strong> {{dept.description}}</p>
+          </td>
         </tr>
 
   
